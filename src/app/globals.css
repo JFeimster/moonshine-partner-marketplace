@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f5f7fb;
+  --foreground: #0b1324;
 }
 
 body {
@@ -12,4 +12,9 @@ body {
 
 a {
   text-decoration: none;
+}
+
+::selection {
+  background: #bbf7d0;
+  color: #022c22;
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fundingCategories } from "@/content/funding-categories";
+import { verticals } from "@/content/verticals";
+import { formatCurrency } from "@/lib/utils";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,25 +20,80 @@ export default async function FundingSlugPage({ params }: Props) {
     notFound();
   }
 
+  const matchingVerticals = verticals.filter((vertical) => vertical.featuredFundingSlug === category.slug);
+
   return (
-    <div className="space-y-6">
-      <p className="text-sm font-semibold uppercase tracking-wider text-emerald-700">Funding category</p>
-      <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">{category.title}</h1>
-      <p className="max-w-3xl text-slate-600">{category.summary}</p>
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-700">
-        <p>
-          <span className="font-semibold text-slate-900">Ideal borrower:</span> {category.idealFor}
-        </p>
-        <p className="mt-2">
-          <span className="font-semibold text-slate-900">Max amount:</span> ${category.maxAmount.toLocaleString("en-US")}
-        </p>
-      </div>
-      <Link
-        href={`/apply?product=${category.slug}`}
-        className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
-      >
-        Continue to application
-      </Link>
+    <div className="space-y-8">
+      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Funding Category</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">{category.title}</h1>
+        <p className="mt-2 text-base font-medium text-slate-700">{category.tagline}</p>
+        <p className="mt-4 max-w-3xl text-slate-600">{category.summary}</p>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Funding Ceiling</p>
+            <p className="mt-1 text-lg font-semibold text-slate-900">{formatCurrency(category.maxAmount)}</p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Min Monthly Revenue</p>
+            <p className="mt-1 text-lg font-semibold text-slate-900">{formatCurrency(category.minMonthlyRevenue)}</p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Speed</p>
+            <p className="mt-1 text-lg font-semibold text-slate-900">{category.timeToFunding}</p>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Term Range</p>
+            <p className="mt-1 text-lg font-semibold text-slate-900">{category.termRange}</p>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-slate-900">Best fit scenarios</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {category.bestFor.map((item) => (
+              <li key={item} className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link
+            href={`/apply?product=${category.slug}`}
+            className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+          >
+            Continue to application
+          </Link>
+          <Link
+            href="/tools/funding-match"
+            className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+          >
+            Use funding matcher
+          </Link>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Aligned vertical routes</h2>
+        {matchingVerticals.length === 0 ? (
+          <p className="mt-3 text-sm text-slate-600">Vertical mappings for this category are being expanded.</p>
+        ) : (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {matchingVerticals.map((vertical) => (
+              <Link
+                key={vertical.slug}
+                href={`/verticals/${vertical.slug}`}
+                className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-800 hover:bg-slate-200"
+              >
+                {vertical.title}
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

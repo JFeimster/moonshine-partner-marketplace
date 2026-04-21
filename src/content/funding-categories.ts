@@ -1,38 +1,75 @@
 export type FundingCategory = {
   slug: string;
   title: string;
+  tagline: string;
   summary: string;
   maxAmount: number;
-  idealFor: string;
+  minMonthlyRevenue: number;
+  timeToFunding: string;
+  termRange: string;
+  bestFor: string[];
+  featured: boolean;
 };
 
 export const fundingCategories: FundingCategory[] = [
   {
     slug: "working-capital",
     title: "Working Capital",
-    summary: "Fast access to operating cash for inventory, payroll, and short-cycle growth.",
+    tagline: "Flexible capital for day-to-day growth pressure",
+    summary: "Bridge operating gaps and accelerate inventory, hiring, and expansion initiatives without freezing cash reserves.",
     maxAmount: 500000,
-    idealFor: "Established operators with recurring revenue.",
+    minMonthlyRevenue: 25000,
+    timeToFunding: "As fast as 24-72 hours",
+    termRange: "6-18 months",
+    bestFor: ["Inventory cycles", "Seasonal payroll", "Location expansion"],
+    featured: true,
   },
   {
     slug: "equipment-financing",
     title: "Equipment Financing",
-    summary: "Preserve cash while acquiring production, logistics, and business-critical equipment.",
+    tagline: "Acquire critical assets while preserving liquidity",
+    summary: "Fund equipment upgrades, vehicles, and production assets with structured terms aligned to business cash flow.",
     maxAmount: 750000,
-    idealFor: "Businesses upgrading hardware and machinery.",
+    minMonthlyRevenue: 40000,
+    timeToFunding: "2-5 business days",
+    termRange: "12-60 months",
+    bestFor: ["Fleet additions", "Medical and dental devices", "Manufacturing equipment"],
+    featured: true,
   },
   {
     slug: "invoice-factoring",
     title: "Invoice Factoring",
-    summary: "Turn receivables into near-term liquidity and smooth out cash conversion cycles.",
+    tagline: "Convert receivables into immediate operating cash",
+    summary: "Unlock cash tied up in unpaid invoices to maintain continuity across payroll, procurement, and servicing.",
     maxAmount: 1000000,
-    idealFor: "Teams managing long payment terms from customers.",
+    minMonthlyRevenue: 50000,
+    timeToFunding: "Same week after review",
+    termRange: "Rolling facilities",
+    bestFor: ["B2B services", "Net-30/60 invoice terms", "Rapid growth with long AR cycles"],
+    featured: true,
   },
   {
     slug: "startup-growth-line",
     title: "Startup Growth Line",
-    summary: "Flexible growth capital for early-stage teams scaling acquisition and delivery.",
+    tagline: "Growth runway for early-stage operators",
+    summary: "Support go-to-market expansion, product delivery, and hiring plans with milestone-aware funding access.",
     maxAmount: 300000,
-    idealFor: "Seed-stage and pre-Series A startups.",
+    minMonthlyRevenue: 10000,
+    timeToFunding: "3-7 business days",
+    termRange: "6-24 months",
+    bestFor: ["SaaS and tech-enabled services", "Emerging operator-led brands", "Teams approaching seed milestones"],
+    featured: false,
+  },
+  {
+    slug: "merchant-cash-advance",
+    title: "Merchant Cash Advance",
+    tagline: "Revenue-linked funding with flexible repayment cadence",
+    summary: "Access upfront capital repaid as a percentage of future sales for businesses with strong daily processing volume.",
+    maxAmount: 400000,
+    minMonthlyRevenue: 35000,
+    timeToFunding: "24-48 hours",
+    termRange: "3-12 months",
+    bestFor: ["High card volume businesses", "Hospitality and retail", "Short-cycle growth opportunities"],
+    featured: false,
   },
 ];
