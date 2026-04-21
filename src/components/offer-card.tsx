@@ -8,7 +8,7 @@ type OfferCardProps = {
 
 export function OfferCard({ offer }: OfferCardProps) {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-xl">
       <div className="flex items-start justify-between gap-2">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Funding Offer</p>
         {offer.featured ? (
@@ -31,8 +31,14 @@ export function OfferCard({ offer }: OfferCardProps) {
         <p className="mt-1">
           <span className="font-medium text-slate-900">Term range:</span> {offer.termRange}
         </p>
+        <p className="mt-1">
+          <span className="font-medium text-slate-900">Pricing profile:</span> {offer.pricingRange}
+        </p>
       </div>
-      <p className="mt-4 text-xs text-slate-500">Best for: {offer.bestFor.slice(0, 2).join(" • ")}</p>
+      <div className="mt-4 space-y-2">
+        <p className="text-xs text-slate-500">Best for: {offer.bestFor.slice(0, 2).join(" • ")}</p>
+        <p className="text-xs text-slate-500">Approval signals: {offer.approvalSignals.slice(0, 2).join(" • ")}</p>
+      </div>
       <Link
         href={`/funding/${offer.slug}`}
         className="mt-5 inline-flex items-center text-sm font-semibold text-slate-900 transition group-hover:text-emerald-700"

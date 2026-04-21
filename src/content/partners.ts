@@ -11,6 +11,8 @@ export type Partner = {
   distributionModel: string;
   primaryGoal: string;
   highlight: string;
+  preferredVerticalSlugs: string[];
+  recommendedFundingSlug: string;
 };
 
 export const partners: Partner[] = [
@@ -27,6 +29,8 @@ export const partners: Partner[] = [
     distributionModel: "Performance media and comparison placements",
     primaryGoal: "Drive high-intent applications at predictable CAC",
     highlight: "Attribution-clean traffic with scalable intent volume",
+    preferredVerticalSlugs: ["logistics", "hospitality", "home-services"],
+    recommendedFundingSlug: "working-capital",
   },
   {
     slug: "agency-channel",
@@ -41,6 +45,8 @@ export const partners: Partner[] = [
     distributionModel: "Referral partnerships and strategic landing pages",
     primaryGoal: "Increase qualified lead conversion and partner retention",
     highlight: "Co-branded journeys for vertical-qualified demand",
+    preferredVerticalSlugs: ["saas", "healthcare"],
+    recommendedFundingSlug: "startup-growth-line",
   },
   {
     slug: "platform-integrations",
@@ -55,6 +61,8 @@ export const partners: Partner[] = [
     distributionModel: "Embedded entrypoints and contextual in-product CTAs",
     primaryGoal: "Capture demand directly in operational workflows",
     highlight: "Friction-light funding access at moments of intent",
+    preferredVerticalSlugs: ["saas", "home-services"],
+    recommendedFundingSlug: "invoice-factoring",
   },
   {
     slug: "franchise-channel",
@@ -69,5 +77,7 @@ export const partners: Partner[] = [
     distributionModel: "Association partnerships and operator newsletters",
     primaryGoal: "Support location launches and capex cycles",
     highlight: "Funding pathways tailored for multi-location execution",
+    preferredVerticalSlugs: ["hospitality", "healthcare"],
+    recommendedFundingSlug: "equipment-financing",
   },
 ];

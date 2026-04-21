@@ -20,7 +20,7 @@ export default async function FundingSlugPage({ params }: Props) {
     notFound();
   }
 
-  const matchingVerticals = verticals.filter((vertical) => vertical.featuredFundingSlug === category.slug);
+  const matchingVerticals = verticals.filter((vertical) => category.recommendedVerticalSlugs.includes(vertical.slug));
 
   return (
     <div className="space-y-8">
@@ -49,12 +49,28 @@ export default async function FundingSlugPage({ params }: Props) {
           </div>
         </div>
 
+        <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Pricing profile</p>
+          <p className="mt-1 text-sm font-medium text-slate-800">{category.pricingRange}</p>
+        </div>
+
         <div className="mt-6">
           <p className="text-sm font-semibold text-slate-900">Best fit scenarios</p>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {category.bestFor.map((item) => (
               <li key={item} className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
                 {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-slate-900">Typical approval signals</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {category.approvalSignals.map((signal) => (
+              <li key={signal} className="rounded-lg bg-slate-100 px-3 py-2 text-sm text-slate-800">
+                {signal}
               </li>
             ))}
           </ul>
@@ -72,6 +88,12 @@ export default async function FundingSlugPage({ params }: Props) {
             className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
           >
             Use funding matcher
+          </Link>
+          <Link
+            href="/partners/affiliate-network"
+            className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+          >
+            View partner distribution path
           </Link>
         </div>
       </section>

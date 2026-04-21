@@ -5,6 +5,8 @@ export type Tool = {
   outcome: string;
   estimatedTime: string;
   idealFor: string;
+  signalInputs: string[];
+  primaryMetric: string;
   ctaLabel: string;
 };
 
@@ -16,6 +18,8 @@ export const tools: Tool[] = [
     outcome: "Outputs the top funding path with a confidence score.",
     estimatedTime: "3 minutes",
     idealFor: "Inbound traffic and partner referrals",
+    signalInputs: ["Monthly revenue", "Time in business", "Funding objective"],
+    primaryMetric: "Match confidence",
     ctaLabel: "Launch matcher",
   },
   {
@@ -25,6 +29,8 @@ export const tools: Tool[] = [
     outcome: "Generates a quarter-by-quarter capital plan.",
     estimatedTime: "5 minutes",
     idealFor: "Pre-seed to Series A teams",
+    signalInputs: ["Burn rate", "Hiring plan", "Milestone targets"],
+    primaryMetric: "Runway projection",
     ctaLabel: "Plan runway",
   },
   {
@@ -34,6 +40,8 @@ export const tools: Tool[] = [
     outcome: "Shows projected offer range and readiness score.",
     estimatedTime: "4 minutes",
     idealFor: "Revenue-generating SMB operators",
+    signalInputs: ["Gross revenue", "Margin profile", "Receivable cycle"],
+    primaryMetric: "Readiness score",
     ctaLabel: "Run estimate",
   },
 ];

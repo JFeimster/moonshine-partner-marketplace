@@ -19,6 +19,37 @@ export default function HomePage() {
     <div className="space-y-16">
       <Hero />
 
+      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+        <SectionHeading
+          eyebrow="Marketplace Paths"
+          title="Clear entrypoints for every acquisition channel"
+          description="Guide prospects from first click to qualified application with the right route architecture."
+        />
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-900">Funding-first path</p>
+            <p className="mt-2 text-sm text-slate-600">Send users to category-level pages when they already know the capital outcome they need.</p>
+            <Link href="/funding" className="mt-3 inline-block text-sm font-semibold text-slate-900 hover:text-emerald-700">
+              Open /funding
+            </Link>
+          </article>
+          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-900">Vertical-first path</p>
+            <p className="mt-2 text-sm text-slate-600">Lead with market context and pain points before presenting the recommended funding offer.</p>
+            <Link href="/verticals/saas" className="mt-3 inline-block text-sm font-semibold text-slate-900 hover:text-emerald-700">
+              Open /verticals/[slug]
+            </Link>
+          </article>
+          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-900">Partner-first path</p>
+            <p className="mt-2 text-sm text-slate-600">Preserve campaign tracking and partner attribution while keeping the UX conversion-led.</p>
+            <Link href="/partners/affiliate-network" className="mt-3 inline-block text-sm font-semibold text-slate-900 hover:text-emerald-700">
+              Open /partners/[partnerSlug]
+            </Link>
+          </article>
+        </div>
+      </section>
+
       <section className="space-y-6">
         <SectionHeading
           eyebrow="Featured Funding Categories"

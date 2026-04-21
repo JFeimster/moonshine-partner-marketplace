@@ -7,6 +7,9 @@ export type FundingCategory = {
   minMonthlyRevenue: number;
   timeToFunding: string;
   termRange: string;
+  pricingRange: string;
+  approvalSignals: string[];
+  recommendedVerticalSlugs: string[];
   bestFor: string[];
   featured: boolean;
 };
@@ -21,6 +24,9 @@ export const fundingCategories: FundingCategory[] = [
     minMonthlyRevenue: 25000,
     timeToFunding: "As fast as 24-72 hours",
     termRange: "6-18 months",
+    pricingRange: "Factor-based pricing with transparent payoff schedule",
+    approvalSignals: ["Stable monthly deposits", "Healthy gross margins", "Business operating 12+ months"],
+    recommendedVerticalSlugs: ["logistics", "hospitality"],
     bestFor: ["Inventory cycles", "Seasonal payroll", "Location expansion"],
     featured: true,
   },
@@ -33,6 +39,9 @@ export const fundingCategories: FundingCategory[] = [
     minMonthlyRevenue: 40000,
     timeToFunding: "2-5 business days",
     termRange: "12-60 months",
+    pricingRange: "Structured monthly repayment",
+    approvalSignals: ["Equipment quote or invoice", "Verified cash flow", "Business entity in good standing"],
+    recommendedVerticalSlugs: ["healthcare", "home-services"],
     bestFor: ["Fleet additions", "Medical and dental devices", "Manufacturing equipment"],
     featured: true,
   },
@@ -45,6 +54,9 @@ export const fundingCategories: FundingCategory[] = [
     minMonthlyRevenue: 50000,
     timeToFunding: "Same week after review",
     termRange: "Rolling facilities",
+    pricingRange: "Rate varies by debtor quality and invoice age",
+    approvalSignals: ["Commercial invoices", "B2B payment history", "Receivables aging report"],
+    recommendedVerticalSlugs: ["logistics", "saas"],
     bestFor: ["B2B services", "Net-30/60 invoice terms", "Rapid growth with long AR cycles"],
     featured: true,
   },
@@ -57,6 +69,9 @@ export const fundingCategories: FundingCategory[] = [
     minMonthlyRevenue: 10000,
     timeToFunding: "3-7 business days",
     termRange: "6-24 months",
+    pricingRange: "Risk-adjusted, milestone-aware terms",
+    approvalSignals: ["Consistent growth trend", "Operator commitment", "Defined use of capital"],
+    recommendedVerticalSlugs: ["saas", "home-services"],
     bestFor: ["SaaS and tech-enabled services", "Emerging operator-led brands", "Teams approaching seed milestones"],
     featured: false,
   },
@@ -69,6 +84,9 @@ export const fundingCategories: FundingCategory[] = [
     minMonthlyRevenue: 35000,
     timeToFunding: "24-48 hours",
     termRange: "3-12 months",
+    pricingRange: "Revenue-share based remittance",
+    approvalSignals: ["Card processing history", "Consistent sales volume", "Operating account verification"],
+    recommendedVerticalSlugs: ["hospitality", "home-services"],
     bestFor: ["High card volume businesses", "Hospitality and retail", "Short-cycle growth opportunities"],
     featured: false,
   },

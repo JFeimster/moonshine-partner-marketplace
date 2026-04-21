@@ -7,13 +7,21 @@ type VerticalCardProps = {
 
 export function VerticalCard({ vertical }: VerticalCardProps) {
   return (
-    <article className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+    <article className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-xl">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-700">Vertical Hub</p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight text-slate-900">{vertical.title}</h3>
       <p className="mt-2 text-sm text-slate-600">{vertical.summary}</p>
+      <p className="mt-2 text-xs text-slate-500">{vertical.operatorProfile}</p>
       <div className="mt-4 rounded-xl bg-slate-50 p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-700">Primary constraint</p>
         <p className="mt-1 text-sm text-slate-700">{vertical.painPoint}</p>
+      </div>
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {vertical.keyKpis.slice(0, 2).map((kpi) => (
+          <span key={kpi} className="rounded-full bg-sky-100 px-2.5 py-1 text-[11px] font-medium text-sky-800">
+            {kpi}
+          </span>
+        ))}
       </div>
       <p className="mt-3 text-xs text-slate-500">Signal: {vertical.marketSignal}</p>
       <Link

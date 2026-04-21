@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { fundingCategories } from "@/content/funding-categories";
 import { partners } from "@/content/partners";
+import { verticals } from "@/content/verticals";
 import { buildTrackingSnapshot, pickTrackingParams, toQueryString, type RawSearchParams, type TrackingParams } from "@/lib/tracking";
 
 type Props = {
@@ -39,6 +41,8 @@ export default async function PartnerPage({ params, searchParams }: Props) {
   const defaults = partnerDefaults(partnerSlug);
   const trackingSnapshot = buildTrackingSnapshot(defaults, incoming);
   const merged = trackingSnapshot.merged;
+  const recommendedFunding = fundingCategories.find((item) => item.slug === partner.recommendedFundingSlug);
+  const preferredVerticals = verticals.filter((vertical) => partner.preferredVerticalSlugs.includes(vertical.slug));
 
   const queryString = toQueryString(merged);
   const applyHref = queryString ? `/apply?${queryString}` : "/apply";
@@ -62,6 +66,30 @@ export default async function PartnerPage({ params, searchParams }: Props) {
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Primary Goal</p>
             <p className="mt-1 text-sm text-slate-900">{partner.primaryGoal}</p>
+          </div>
+        </div>
+        <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Recommended funding route</p>
+          {recommendedFunding ? (
+            <Link href={`/funding/${recommendedFunding.slug}`} className="mt-1 inline-block text-sm font-semibold text-slate-900 hover:text-emerald-700">
+              {recommendedFunding.title} · {recommendedFunding.tagline}
+            </Link>
+          ) : (
+            <p className="mt-1 text-sm text-slate-600">Funding recommendation is being configured.</p>
+          )}
+        </div>
+        <div className="mt-4">
+          <p className="text-sm font-semibold text-slate-900">Preferred vertical entrypoints</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {preferredVerticals.map((vertical) => (
+              <Link
+                key={vertical.slug}
+                href={`/verticals/${vertical.slug}`}
+                className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-800 hover:bg-slate-200"
+              >
+                {vertical.title}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -114,6 +142,12 @@ export default async function PartnerPage({ params, searchParams }: Props) {
           className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
         >
           Browse tracked funding routes
+        </Link>
+        <Link
+          href={`/tools/funding-match?${queryString}`}
+          className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+        >
+          Launch tracked funding match
         </Link>
       </div>
     </div>

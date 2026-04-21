@@ -28,6 +28,17 @@ export function Hero() {
             >
               Explore funding offers
             </Link>
+            <Link
+              href="/partners/affiliate-network"
+              className="rounded-full border border-emerald-200/60 bg-emerald-300/10 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-100 hover:bg-emerald-300/20"
+            >
+              Partner landing example
+            </Link>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2 text-xs">
+            <span className="rounded-full bg-white/10 px-3 py-1.5 text-slate-200">Path: Discover funding</span>
+            <span className="rounded-full bg-white/10 px-3 py-1.5 text-slate-200">Path: Validate fit</span>
+            <span className="rounded-full bg-white/10 px-3 py-1.5 text-slate-200">Path: Apply with attribution</span>
           </div>
         </div>
 

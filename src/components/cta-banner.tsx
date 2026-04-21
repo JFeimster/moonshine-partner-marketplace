@@ -24,14 +24,20 @@ export function CtaBanner() {
             >
               View partner experience
             </Link>
+            <Link
+              href="/funding"
+              className="rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-emerald-50 transition hover:border-white hover:bg-white/10"
+            >
+              Browse funding marketplace
+            </Link>
           </div>
         </div>
         <div className="rounded-2xl border border-white/30 bg-white/10 p-5 text-sm backdrop-blur">
-          <p className="font-semibold">What ships in partner mode</p>
+          <p className="font-semibold">Clear conversion path</p>
           <ul className="mt-3 space-y-2 text-emerald-50/90">
-            <li>- Pre-filled tracking parameters</li>
-            <li>- Source-aware attribution snapshot</li>
-            <li>- Offer and vertical routing context</li>
+            <li>- Choose offer category or vertical entrypoint</li>
+            <li>- Qualify through tools and intent signals</li>
+            <li>- Apply with partner attribution attached</li>
           </ul>
         </div>
       </div>
