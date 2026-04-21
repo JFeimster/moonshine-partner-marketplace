@@ -18,6 +18,7 @@ export function OfferCard({ offer }: OfferCardProps) {
       <h3 className="mt-3 text-xl font-semibold tracking-tight text-slate-900">{offer.title}</h3>
       <p className="mt-1 text-sm font-medium text-slate-700">{offer.tagline}</p>
       <p className="mt-3 text-sm text-slate-600">{offer.summary}</p>
+      <p className="mt-2 text-xs text-slate-500">{offer.bestFitBorrower}</p>
       <div className="mt-4 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
         <p>
           <span className="font-medium text-slate-900">Funding ceiling:</span> {formatCurrency(offer.maxAmount)}
@@ -37,6 +38,7 @@ export function OfferCard({ offer }: OfferCardProps) {
       </div>
       <div className="mt-4 space-y-2">
         <p className="text-xs text-slate-500">Best for: {offer.bestFor.slice(0, 2).join(" • ")}</p>
+        <p className="text-xs text-slate-500">Not ideal for: {offer.notIdealFor.slice(0, 2).join(" • ")}</p>
         <p className="text-xs text-slate-500">Approval signals: {offer.approvalSignals.slice(0, 2).join(" • ")}</p>
       </div>
       <Link

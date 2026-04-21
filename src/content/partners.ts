@@ -1,6 +1,7 @@
 export type Partner = {
   slug: string;
   name: string;
+  landingHeadline: string;
   partnerId: string;
   defaultUtmSource: string;
   defaultUtmMedium: string;
@@ -13,12 +14,14 @@ export type Partner = {
   highlight: string;
   preferredVerticalSlugs: string[];
   recommendedFundingSlug: string;
+  referralMotion: string;
 };
 
 export const partners: Partner[] = [
   {
     slug: "affiliate-network",
     name: "Affiliate Network",
+    landingHeadline: "Scale partner-sourced applications with attribution clarity.",
     partnerId: "partner_1001",
     defaultUtmSource: "affiliate-network",
     defaultUtmMedium: "partner",
@@ -31,10 +34,12 @@ export const partners: Partner[] = [
     highlight: "Attribution-clean traffic with scalable intent volume",
     preferredVerticalSlugs: ["logistics", "hospitality", "home-services"],
     recommendedFundingSlug: "working-capital",
+    referralMotion: "Performance traffic -> funding detail page -> tracked apply flow",
   },
   {
     slug: "agency-channel",
     name: "Agency Channel",
+    landingHeadline: "Convert advisory trust into high-quality funding demand.",
     partnerId: "partner_1002",
     defaultUtmSource: "agency-channel",
     defaultUtmMedium: "partner",
@@ -47,10 +52,12 @@ export const partners: Partner[] = [
     highlight: "Co-branded journeys for vertical-qualified demand",
     preferredVerticalSlugs: ["saas", "healthcare"],
     recommendedFundingSlug: "startup-growth-line",
+    referralMotion: "Partner brief -> vertical page -> tracked qualification tool",
   },
   {
     slug: "platform-integrations",
     name: "Platform Integrations",
+    landingHeadline: "Embed funding access inside moments of operator intent.",
     partnerId: "partner_1003",
     defaultUtmSource: "platform-integrations",
     defaultUtmMedium: "partner",
@@ -63,10 +70,12 @@ export const partners: Partner[] = [
     highlight: "Friction-light funding access at moments of intent",
     preferredVerticalSlugs: ["saas", "home-services"],
     recommendedFundingSlug: "invoice-factoring",
+    referralMotion: "In-product CTA -> partner landing route -> tracked apply",
   },
   {
     slug: "franchise-channel",
     name: "Franchise Channel",
+    landingHeadline: "Support multi-location growth with partner-routed capital paths.",
     partnerId: "partner_1004",
     defaultUtmSource: "franchise-channel",
     defaultUtmMedium: "partner",
@@ -79,5 +88,6 @@ export const partners: Partner[] = [
     highlight: "Funding pathways tailored for multi-location execution",
     preferredVerticalSlugs: ["hospitality", "healthcare"],
     recommendedFundingSlug: "equipment-financing",
+    referralMotion: "Franchise referral -> category page -> tracked application",
   },
 ];

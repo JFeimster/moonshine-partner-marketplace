@@ -7,6 +7,7 @@ export type Tool = {
   idealFor: string;
   signalInputs: string[];
   primaryMetric: string;
+  funnelStage: string;
   ctaLabel: string;
 };
 
@@ -20,6 +21,7 @@ export const tools: Tool[] = [
     idealFor: "Inbound traffic and partner referrals",
     signalInputs: ["Monthly revenue", "Time in business", "Funding objective"],
     primaryMetric: "Match confidence",
+    funnelStage: "Discovery to qualification",
     ctaLabel: "Launch matcher",
   },
   {
@@ -31,6 +33,7 @@ export const tools: Tool[] = [
     idealFor: "Pre-seed to Series A teams",
     signalInputs: ["Burn rate", "Hiring plan", "Milestone targets"],
     primaryMetric: "Runway projection",
+    funnelStage: "Planning and readiness",
     ctaLabel: "Plan runway",
   },
   {
@@ -42,6 +45,7 @@ export const tools: Tool[] = [
     idealFor: "Revenue-generating SMB operators",
     signalInputs: ["Gross revenue", "Margin profile", "Receivable cycle"],
     primaryMetric: "Readiness score",
+    funnelStage: "Qualification before apply",
     ctaLabel: "Run estimate",
   },
 ];

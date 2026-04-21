@@ -77,6 +77,14 @@ export default function FundingIndexPage() {
             <p className="mt-1 text-sm text-slate-600">Send the application with attribution context attached for partner reporting.</p>
           </article>
         </div>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href="/apply" className="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">
+            Start application
+          </Link>
+          <Link href="/tools" className="rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900">
+            Explore qualification tools
+          </Link>
+        </div>
       </section>
     </div>
   );

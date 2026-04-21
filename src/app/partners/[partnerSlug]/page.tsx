@@ -41,6 +41,7 @@ export default async function PartnerPage({ params, searchParams }: Props) {
   const defaults = partnerDefaults(partnerSlug);
   const trackingSnapshot = buildTrackingSnapshot(defaults, incoming);
   const merged = trackingSnapshot.merged;
+  const detectedParams = trackingSnapshot.rows.filter((row) => row.source === "incoming");
   const recommendedFunding = fundingCategories.find((item) => item.slug === partner.recommendedFundingSlug);
   const preferredVerticals = verticals.filter((vertical) => partner.preferredVerticalSlugs.includes(vertical.slug));
 
@@ -52,6 +53,7 @@ export default async function PartnerPage({ params, searchParams }: Props) {
       <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Partner Landing Page</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">{partner.name}</h1>
+        <p className="mt-2 text-base font-medium text-slate-700">{partner.landingHeadline}</p>
         <p className="mt-4 max-w-3xl text-slate-600">{partner.description}</p>
 
         <div className="mt-6 grid gap-3 md:grid-cols-3">
@@ -77,6 +79,10 @@ export default async function PartnerPage({ params, searchParams }: Props) {
           ) : (
             <p className="mt-1 text-sm text-slate-600">Funding recommendation is being configured.</p>
           )}
+        </div>
+        <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Referral motion</p>
+          <p className="mt-1 text-sm text-slate-800">{partner.referralMotion}</p>
         </div>
         <div className="mt-4">
           <p className="text-sm font-semibold text-slate-900">Preferred vertical entrypoints</p>
@@ -132,6 +138,20 @@ export default async function PartnerPage({ params, searchParams }: Props) {
           </table>
         </div>
       </section>
+
+      {detectedParams.length > 0 ? (
+        <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-emerald-900">Detected referral parameters</h2>
+          <div className="mt-3 grid gap-2 md:grid-cols-2">
+            {detectedParams.map((row) => (
+              <div key={row.key} className="rounded-lg border border-emerald-200 bg-white px-3 py-2">
+                <p className="text-xs uppercase tracking-[0.12em] text-emerald-700">{row.label}</p>
+                <p className="mt-1 font-mono text-xs text-emerald-900">{row.value}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <div className="flex flex-wrap gap-3">
         <Link href={applyHref} className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">

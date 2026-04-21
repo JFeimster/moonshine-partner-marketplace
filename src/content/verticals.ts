@@ -7,6 +7,7 @@ export type Vertical = {
   marketSignal: string;
   featuredFundingSlug: string;
   recommendedToolSlug: string;
+  capitalUseCases: string[];
   keyKpis: string[];
 };
 
@@ -20,6 +21,7 @@ export const verticals: Vertical[] = [
     marketSignal: "Median payback windows compress when funded GTM systems are deployed.",
     featuredFundingSlug: "startup-growth-line",
     recommendedToolSlug: "startup-planner",
+    capitalUseCases: ["CAC expansion", "Product and engineering hires", "Customer success scaling"],
     keyKpis: ["MRR growth", "CAC payback", "Net revenue retention"],
   },
   {
@@ -31,6 +33,7 @@ export const verticals: Vertical[] = [
     marketSignal: "Operational throughput climbs with modernized equipment and staffing depth.",
     featuredFundingSlug: "equipment-financing",
     recommendedToolSlug: "revenue-estimator",
+    capitalUseCases: ["Diagnostic equipment upgrades", "Provider hiring ramp", "Facility throughput expansion"],
     keyKpis: ["Provider utilization", "Days in AR", "Appointment throughput"],
   },
   {
@@ -42,6 +45,7 @@ export const verticals: Vertical[] = [
     marketSignal: "Route density and asset uptime are direct drivers of margin expansion.",
     featuredFundingSlug: "working-capital",
     recommendedToolSlug: "funding-match",
+    capitalUseCases: ["Fuel and payroll bridge", "Fleet maintenance cycles", "Route expansion support"],
     keyKpis: ["Fleet utilization", "On-time delivery", "Gross margin per route"],
   },
   {
@@ -53,6 +57,7 @@ export const verticals: Vertical[] = [
     marketSignal: "Advanced prep financing consistently improves peak-season capture rates.",
     featuredFundingSlug: "working-capital",
     recommendedToolSlug: "revenue-estimator",
+    capitalUseCases: ["Seasonal inventory prep", "Labor scheduling ramp", "Location refresh and capacity"],
     keyKpis: ["Average ticket size", "Table turn rate", "Seasonal revenue lift"],
   },
   {
@@ -64,6 +69,7 @@ export const verticals: Vertical[] = [
     marketSignal: "Speed-to-dispatch and close rates improve with pre-funded capacity.",
     featuredFundingSlug: "equipment-financing",
     recommendedToolSlug: "funding-match",
+    capitalUseCases: ["Vehicle additions", "Technician onboarding", "High-volume job fulfillment"],
     keyKpis: ["Job close rate", "Technician utilization", "Average response time"],
   },
 ];

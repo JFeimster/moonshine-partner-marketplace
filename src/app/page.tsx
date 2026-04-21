@@ -107,8 +107,13 @@ export default function HomePage() {
       <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <SectionHeading
           eyebrow="Partner Program"
-          title="Distribution-ready partner landing framework"
-          description="Launch co-branded experiences with tracked attribution fields and channel-specific campaign defaults, without rebuilding the funnel each time."
+          title="Distribution-ready partner and attribution framework"
+          description="Launch co-branded experiences with channel defaults and visible referral context so every partner click can be routed and measured cleanly."
+          actions={
+            <Link href="/partners/affiliate-network" className="text-sm font-semibold text-slate-900 hover:text-emerald-700">
+              Open partner route
+            </Link>
+          }
         />
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {partners.slice(0, 3).map((partner) => (
@@ -121,6 +126,16 @@ export default function HomePage() {
               </Link>
             </article>
           ))}
+        </div>
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm font-semibold text-slate-900">Tracked referral fields</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {["partner_id", "utm_source", "utm_medium", "utm_campaign", "ref", "asset_id"].map((field) => (
+              <span key={field} className="rounded-full bg-white px-3 py-1.5 font-mono text-xs text-slate-700">
+                {field}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

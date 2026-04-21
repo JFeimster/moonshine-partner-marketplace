@@ -23,6 +23,9 @@ export default async function VerticalSlugPage({ params }: Props) {
   const featuredOffer = fundingCategories.find((item) => item.slug === vertical.featuredFundingSlug);
   const recommendedTool = tools.find((item) => item.slug === vertical.recommendedToolSlug);
   const alternateOffers = fundingCategories.filter((item) => item.slug !== vertical.featuredFundingSlug).slice(0, 2);
+  const recommendedCategories = featuredOffer
+    ? [featuredOffer, ...alternateOffers.filter((item) => item.slug !== featuredOffer.slug)]
+    : alternateOffers;
 
   return (
     <div className="space-y-8">
@@ -49,6 +52,17 @@ export default async function VerticalSlugPage({ params }: Props) {
             {vertical.keyKpis.map((kpi) => (
               <li key={kpi} className="rounded-full bg-sky-100 px-3 py-1.5 text-xs font-medium text-sky-900">
                 {kpi}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-slate-900">Capital use cases</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {vertical.capitalUseCases.map((item) => (
+              <li key={item} className="rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">
+                {item}
               </li>
             ))}
           </ul>
@@ -89,14 +103,33 @@ export default async function VerticalSlugPage({ params }: Props) {
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-slate-900">Alternate categories to test</h2>
+        <h2 className="text-xl font-semibold text-slate-900">Recommended funding categories</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {alternateOffers.map((offer) => (
+          {recommendedCategories.map((offer) => (
             <Link key={offer.slug} href={`/funding/${offer.slug}`} className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:bg-slate-100">
               <p className="font-semibold text-slate-900">{offer.title}</p>
               <p className="mt-1 text-sm text-slate-600">{offer.tagline}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Ready to move forward?</h2>
+        <p className="mt-2 text-sm text-slate-600">Choose a direct application path or start with matching based on your current business profile.</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href={featuredOffer ? `/apply?vertical=${vertical.slug}&product=${featuredOffer.slug}` : `/apply?vertical=${vertical.slug}`}
+            className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+          >
+            Apply with vertical context
+          </Link>
+          <Link
+            href={`/tools/funding-match?vertical=${vertical.slug}`}
+            className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+          >
+            Get matched first
+          </Link>
         </div>
       </section>
     </div>

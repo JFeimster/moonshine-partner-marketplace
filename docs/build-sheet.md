@@ -11,9 +11,9 @@
   - featured funding categories
   - featured verticals
   - interactive tools module
-  - partner program CTA
+  - partner distribution + attribution visibility section
 - Upgraded reusable cards and section heading system for stronger visual hierarchy
-- Expanded footer structure for real product navigation and positioning
+- Expanded header/footer structure for stronger conversion navigation and route discoverability
 
 ## Data and Content System
 - Enriched seed content for:
@@ -22,10 +22,10 @@
   - `tools`
   - `partners`
 - Added realistic fields for qualification and routing context:
-  - funding timelines, revenue floors, term ranges
-  - vertical pain points and KPI signals
-  - tool outcomes and completion windows
-  - partner audience/distribution model metadata
+  - funding timelines, revenue floors, term ranges, pricing profile, ideal/not-ideal guidance
+  - vertical pain points, capital use cases, and KPI signals
+  - tool outcomes, signal inputs, and funnel-stage framing
+  - partner audience/distribution metadata, referral motion, and landing headline
 
 ## Routing and Tracking
 - Upgraded dynamic routes:
@@ -36,6 +36,7 @@
   - `incoming` (query override)
   - `default` (partner preset)
   - `missing` (unset)
+- Partner route additionally surfaces detected incoming params when present for faster QA validation
 
 ## Immediate Next Build Steps
 - Connect application intake to validated lead submission contract

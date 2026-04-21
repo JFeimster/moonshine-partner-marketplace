@@ -24,6 +24,9 @@ export function ToolCard({ tool }: ToolCardProps) {
         <p className="mt-1">
           <span className="font-semibold text-slate-900">Primary metric:</span> {tool.primaryMetric}
         </p>
+        <p className="mt-1">
+          <span className="font-semibold text-slate-900">Funnel stage:</span> {tool.funnelStage}
+        </p>
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {tool.signalInputs.map((signal) => (

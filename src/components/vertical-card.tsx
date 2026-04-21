@@ -23,6 +23,7 @@ export function VerticalCard({ vertical }: VerticalCardProps) {
           </span>
         ))}
       </div>
+      <p className="mt-2 text-xs text-slate-500">Use cases: {vertical.capitalUseCases.slice(0, 2).join(" • ")}</p>
       <p className="mt-3 text-xs text-slate-500">Signal: {vertical.marketSignal}</p>
       <Link
         href={`/verticals/${vertical.slug}`}
