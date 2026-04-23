@@ -40,8 +40,22 @@
 - `/api/track`
 - `/api/webhook`
 
+## Seed Content Added From Marketplace Planning Thread
+- `src/content/funding-products.ts`
+  - 59 white-labeled product rows for future product-level marketplace routing
+  - includes `solutionFamily`, `creditTier`, `useCase`, and `parentCategorySlug`
+- expanded `src/content/verticals.ts`
+  - broader vertical coverage across SaaS, ecommerce, contractors, trucking, healthcare, construction, franchise, creators, and more
+- expanded `src/content/tools.ts`
+  - broader utility set spanning matching, planning, estimators, checklisting, seller analysis, DSCR snapshots, attribution, and follow-up workflows
+
 ## Route Design Notes
-- App Router structure is preserved and file-based
-- Dynamic routes use seed content + `generateStaticParams` for coverage
-- Partner route remains dynamic to support query-based attribution overrides
-- Marketplace positioning remains front-end, attribution-visible, and provider-agnostic
+- App Router structure is preserved and file-based.
+- Dynamic routes currently ship at the category, vertical, and partner level.
+- The 59-row product seed file is now present in the repo as the future source for a true product-detail marketplace layer.
+- Recommended future product routes:
+  - `/products`
+  - `/products/[slug]`
+  - optional collection-style routes if category pages need a second layer beyond `/funding/[slug]`
+- Partner route remains dynamic to support query-based attribution overrides.
+- Marketplace positioning remains front-end, attribution-visible, and provider-agnostic.
