@@ -10,7 +10,7 @@ export const siteConfig = {
     "Marketplace infrastructure for partner-distributed funding offers, vertical landing pages, and conversion routing.",
   nav: [
     { label: "Funding", href: "/funding" },
-    { label: "Verticals", href: "/verticals/saas" },
+    { label: "Verticals", href: "/verticals" },
     { label: "Tools", href: "/tools" },
     { label: "Partners", href: "/partners/affiliate-network" },
     { label: "Apply", href: "/apply" },
