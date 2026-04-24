@@ -32,6 +32,7 @@ export default async function VerticalSlugPage({ params }: Props) {
       <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">Vertical Landing Page</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">{vertical.title} funding solutions</h1>
+        <p className="mt-3 inline-flex rounded-full bg-sky-100 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-sky-900">{vertical.segment}</p>
         <p className="mt-4 max-w-3xl text-slate-600">{vertical.summary}</p>
         <p className="mt-2 max-w-3xl text-sm text-slate-500">{vertical.operatorProfile}</p>
 
@@ -63,6 +64,17 @@ export default async function VerticalSlugPage({ params }: Props) {
             {vertical.capitalUseCases.map((item) => (
               <li key={item} className="rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-900">
                 {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-slate-900">Best-fit capital paths</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {vertical.bestFitCapitalPaths.map((path) => (
+              <li key={path} className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+                {path}
               </li>
             ))}
           </ul>
@@ -129,6 +141,9 @@ export default async function VerticalSlugPage({ params }: Props) {
             className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
           >
             Get matched first
+          </Link>
+          <Link href="/verticals" className="inline-flex rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900">
+            Browse all verticals
           </Link>
         </div>
       </section>
