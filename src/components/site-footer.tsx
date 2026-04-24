@@ -13,7 +13,7 @@ export function SiteFooter() {
             Front-end funding marketplace and partner distribution platform designed for attribution clarity and conversion velocity.
           </p>
           <p className="mt-4 text-xs text-slate-500">Support: {siteConfig.legal.supportEmail}</p>
-          <p className="mt-1 text-xs text-slate-500">Best use: route traffic by intent, qualify with tools, apply with tracked context.</p>
+          <p className="mt-1 text-xs text-slate-500">Best use: route traffic by intent, qualify with tools, and apply with tracked context.</p>
         </div>
         <div>
           <p className="font-semibold text-slate-900">Marketplace</p>
@@ -21,8 +21,8 @@ export function SiteFooter() {
             <Link href="/funding" className="hover:text-slate-900">
               Funding offers
             </Link>
-            <Link href="/verticals/saas" className="hover:text-slate-900">
-              Vertical hubs
+            <Link href="/verticals" className="hover:text-slate-900">
+              Vertical directory
             </Link>
             <Link href="/tools" className="hover:text-slate-900">
               Interactive tools
@@ -52,11 +52,14 @@ export function SiteFooter() {
             <Link href="/funding/working-capital" className="hover:text-slate-900">
               Working Capital
             </Link>
+            <Link href="/verticals/startups" className="hover:text-slate-900">
+              Startups
+            </Link>
+            <Link href="/verticals/real-estate-investors" className="hover:text-slate-900">
+              Real Estate Investors
+            </Link>
             <Link href="/tools/funding-match" className="hover:text-slate-900">
               Funding Match
-            </Link>
-            <Link href="/verticals/saas" className="hover:text-slate-900">
-              SaaS Vertical
             </Link>
           </div>
         </div>
