@@ -15,9 +15,15 @@
   - related links back to `/funding` and `/tools`
 
 ## Verticals
+- `/verticals`
+  - real vertical coverage directory
+  - segment-aware cards
+  - summary + best-fit capital paths on the index itself
+  - links into tracked apply flow and deeper vertical pages
 - `/verticals/[slug]`
   - vertical-specific operator narrative and pain points
   - capital use-case module
+  - best-fit capital paths block
   - recommended funding categories + alternate options
   - CTA paths for apply or matching tool
 
@@ -45,13 +51,15 @@
   - 59 white-labeled product rows for future product-level marketplace routing
   - includes `solutionFamily`, `creditTier`, `useCase`, and `parentCategorySlug`
 - expanded `src/content/verticals.ts`
-  - broader vertical coverage across SaaS, ecommerce, contractors, trucking, healthcare, construction, franchise, creators, and more
+  - broader vertical coverage across startups, solopreneurs, consultants, agencies, B2B SaaS, ecommerce brands, Amazon sellers, Walmart sellers, TikTok Shop sellers, restaurants, contractors, trucking, logistics, healthcare, franchise owners, real estate investors, creators, and more
+  - now includes `segment` and `bestFitCapitalPaths`
 - expanded `src/content/tools.ts`
   - broader utility set spanning matching, planning, estimators, checklisting, seller analysis, DSCR snapshots, attribution, and follow-up workflows
 
 ## Route Design Notes
 - App Router structure is preserved and file-based.
 - Dynamic routes currently ship at the category, vertical, and partner level.
+- The new `/verticals` index turns the vertical layer into an actual directory instead of a thin set of orphaned detail pages.
 - The 59-row product seed file is now present in the repo as the future source for a true product-detail marketplace layer.
 - Recommended future product routes:
   - `/products`
