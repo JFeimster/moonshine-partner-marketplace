@@ -38,6 +38,7 @@
 ## Vertical
 - `slug: string`
 - `title: string`
+- `segment: string`
 - `summary: string`
 - `operatorProfile: string`
 - `painPoint: string`
@@ -46,6 +47,7 @@
 - `recommendedToolSlug: string`
 - `capitalUseCases: string[]`
 - `keyKpis: string[]`
+- `bestFitCapitalPaths: string[]`
 
 ## Tool
 - `slug: string`
@@ -97,14 +99,14 @@
 
 ## Marketplace Taxonomy Notes
 - `FundingCategory` remains the top-level marketplace browse layer used for narrative landing pages.
-- `FundingProduct` is the more granular white-labeled product layer seeded for future data-driven filtering, product detail routes, and routing tools.
+- `FundingProduct` is the more granular white-labeled product layer seeded for future product-level filtering, detail routes, and routing tools.
+- `Vertical` now has a real directory layer, not just thin narrative landing pages. `segment` and `bestFitCapitalPaths` are the minimum operator-facing fields that make the directory useful.
 - `parentCategorySlug` connects products back to broader category pages without exposing backend providers.
 - `solutionFamily`, `creditTier`, and `useCase` are the primary marketplace filter fields.
-- The expanded vertical directory is intended to support a broader industry surface than the original V1 seed.
 - The expanded tool directory reflects planning, routing, estimator, attribution, and follow-up utilities discussed in the build thread.
 
 ## UI Notes
 - Funding detail pages read `bestFitBorrower`, `bestFor`, and `notIdealFor` to generate decision guidance.
-- Vertical pages read `capitalUseCases` and recommended tool/category mappings.
+- Vertical pages now read `segment` and `bestFitCapitalPaths` in addition to `capitalUseCases` and recommended tool/category mappings.
 - Partner pages render both full tracking snapshot and incoming-only detected param display.
 - The 59-row `FundingProduct` seed file is positioned as the future source for true product-level marketplace routes and richer filtering.
